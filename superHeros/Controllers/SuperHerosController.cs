@@ -41,6 +41,7 @@ namespace superHeros.Controllers
         public IActionResult Create()
         {
             //new superhero object
+            SuperHeros supeHero = new SuperHeros();
             return View();
         }
 
@@ -66,6 +67,7 @@ namespace superHeros.Controllers
         public IActionResult Edit(int id)
         {
             var superHero = db.SuperHero.Where(j => j.superHeroId == id).FirstOrDefault();
+            db.SaveChanges();
             return View(superHero);
         }
 
